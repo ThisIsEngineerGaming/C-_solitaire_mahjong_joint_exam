@@ -1,5 +1,11 @@
-namespace examer
+using examer;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace Program
 {
+
     internal static class Program
     {
         /// <summary>
@@ -11,7 +17,7 @@ namespace examer
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainMenuForm());
         }
     }
 }
