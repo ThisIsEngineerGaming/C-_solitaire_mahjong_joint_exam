@@ -124,24 +124,21 @@ namespace examer
 
             if (!a.TileData.IsMatching(b.TileData))
             {
-                MessageBox.Show("Tiles do not match.");
                 return;
             }
 
             if (!board.IsTileFree(a) || !board.IsTileFree(b))
             {
-                MessageBox.Show("Tiles blocked.");
                 return;
             }
 
             if (board.TryMatch(a, b))
             {
                 UpdateTileAvailability();
-                MessageBox.Show("Match removed.");
             }
             else
             {
-                MessageBox.Show("Cannot match.");
+
             }
         }
 
@@ -150,7 +147,9 @@ namespace examer
             foreach (var t in board.TilesOnBoard)
             {
                 if (t.Visual is Control c)
+                {
                     c.Enabled = c.Visible && board.IsTileFree(t);
+                }
             }
         }
 
