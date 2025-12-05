@@ -50,3 +50,21 @@ C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\ref\examer.dll
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.Pattern1.resources
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.MainMenuForm.resources
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\examer.exe
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\examer.deps.json
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\examer.runtimeconfig.json
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\examer.dll
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\examer.pdb
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.MainMenuForm.resources
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.Pattern1.resources
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.AssemblyInfoInputs.cache
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.AssemblyInfo.cs
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.sourcelink.json
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.dll
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\refint\examer.dll
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.pdb
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\examer.genruntimeconfig.cache
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\obj\Debug\net9.0-windows\ref\examer.dll
