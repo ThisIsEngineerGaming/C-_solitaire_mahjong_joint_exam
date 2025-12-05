@@ -21,7 +21,6 @@ namespace examer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // create runtime checkboxes for the middle layer
             tile5 = new CheckBox { AutoSize = true, Name = "tile5", TabIndex = 4, UseVisualStyleBackColor = true };
             tile6 = new CheckBox { AutoSize = true, Name = "tile6", TabIndex = 5, UseVisualStyleBackColor = true };
             tile5.CheckedChanged += tiles_CheckedChanged;
@@ -29,7 +28,6 @@ namespace examer
             Controls.Add(tile5);
             Controls.Add(tile6);
 
-            // labels
             tile1.Text = "Circle3";
             tile3.Text = "Circle3";
             tile5!.Text = "Bamboo2";
@@ -37,23 +35,19 @@ namespace examer
             tile2.Text = "EastWind";
             tile4.Text = "EastWind";
 
-            // stack layout parameters
             var stackAX = 200;
             var stackBX = 320;
             var baseY = 200;
-            var layerOffset = 14; // vertical offset between layers
+            var layerOffset = 14;
 
-            // Stack A positions (X=stackAX)
-            tile2.Location = new Point(stackAX, baseY); // wind bottom (Z=0)
-            tile5.Location = new Point(stackAX, baseY - layerOffset); // bamboo middle (Z=1)
-            tile1.Location = new Point(stackAX + 6, baseY - 2 * layerOffset); // circle top (Z=2)
+            tile2.Location = new Point(stackAX, baseY);
+            tile5.Location = new Point(stackAX, baseY - layerOffset);
+            tile1.Location = new Point(stackAX + 6, baseY - 2 * layerOffset);
 
-            // Stack B positions (X=stackBX)
-            tile4.Location = new Point(stackBX, baseY); // wind bottom
-            tile6!.Location = new Point(stackBX, baseY - layerOffset); // bamboo middle
-            tile3.Location = new Point(stackBX + 6, baseY - 2 * layerOffset); // circle top
+            tile4.Location = new Point(stackBX, baseY);
+            tile6!.Location = new Point(stackBX, baseY - layerOffset);
+            tile3.Location = new Point(stackBX + 6, baseY - 2 * layerOffset);
 
-            // ensure circles visually on top
             tile1.BringToFront();
             tile3.BringToFront();
             tile5!.BringToFront();
@@ -61,7 +55,6 @@ namespace examer
             tile2.BringToFront();
             tile4.BringToFront();
 
-            // create TileObjects with Z ordering: top=2, middle=1, bottom=0
             var circleTopA = new TileObject(new Tile { Suit = "circle", Value = 3 }, 0, 0, 2, tile1);
             var bambooMidA = new TileObject(new Tile { Suit = "bamboo", Value = 2 }, 0, 0, 1, tile5!);
             var windBottomA = new TileObject(new Tile { Suit = "wind", Value = 1 }, 0, 0, 0, tile2);
@@ -74,7 +67,6 @@ namespace examer
 
             UpdateTileAvailability();
 
-            // clear any selections
             tile1.Checked = false;
             tile2.Checked = false;
             tile3.Checked = false;
@@ -90,7 +82,6 @@ namespace examer
             var tileObj = board.FindByVisual(cb);
             if (tileObj == null) return;
 
-            // Defensive: if the tile is not free, do not allow selecting it
             if (!board.IsTileFree(tileObj))
             {
                 suppressCheckedChanged = true;
@@ -121,24 +112,23 @@ namespace examer
 
             if (!TilesMatch(a.TileData, b.TileData))
             {
-                MessageBox.Show("Tiles do not match.", "No match", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Removed MessageBox: "Tiles do not match."
                 return;
             }
 
             if (!board.IsTileFree(a) || !board.IsTileFree(b))
             {
-                MessageBox.Show("One or both tiles are blocked and cannot be matched.", "Cannot match", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Removed MessageBox: "Tiles blocked."
                 return;
             }
 
             if (board.TryMatch(a, b))
             {
                 UpdateTileAvailability();
-                MessageBox.Show("Tiles matched and removed.", "Matched", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Unable to match tiles (internal check failed).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -148,7 +138,6 @@ namespace examer
             {
                 if (t.Visual is Control c)
                 {
-                    // if visual is hidden, keep it disabled; otherwise enable only if tile is free
                     c.Enabled = c.Visible && board.IsTileFree(t);
                 }
             }
