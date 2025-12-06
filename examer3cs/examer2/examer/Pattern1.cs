@@ -73,13 +73,14 @@ namespace examer
             AddTile("WND", 1, 0, 0, 2);
             AddTile("DRG", 1, 0, 0, 3);
 
-            AddTile("FLW", 1, -5, -1, 0);
-            AddTile("FLW", 2, -5, 0, 0);
-            AddTile("FLW", 3, -6, 0, 1);
+            AddTile("FLW", 1, -3, -1, 0);
+            AddTile("FLW", 2, -3, 0, 0);
+            AddTile("FLW", 3, -4, 0, 1);
 
-            AddTile("SSN", 1, 5, -1, 0);
-            AddTile("SSN", 2, 5, 0, 0);
-            AddTile("SSN", 3, 6, 0, 1);
+            AddTile("SSN", 1, 3, -1, 0);
+            AddTile("SSN", 2, 3, 0, 0);
+            AddTile("SSN", 3, 4, 0, 1);
+
 
             TileRandom.ShuffleTiles(board.TilesOnBoard);
 
