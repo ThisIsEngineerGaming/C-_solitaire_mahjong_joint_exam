@@ -39,10 +39,14 @@ namespace examer
                 };
                 cb.CheckedChanged += tiles_CheckedChanged;
 
+                int offsetX = tileW / 5;
+                int offsetY = tileH / 2;
+
                 cb.Location = new Point(
-                    center.X + bx * tileW + bz * zOffsetX,
-                    center.Y + by * tileH - bz * zOffsetY
+                    center.X + bx * tileW + bz * offsetX,
+                    center.Y + by * tileH - bz * offsetY
                 );
+
 
                 Controls.Add(cb);
                 cb.BringToFront();
@@ -59,10 +63,6 @@ namespace examer
                 ));
             }
 
-            // ------------------------------
-            // ORIGINAL PATTERN (unchanged)
-            // ------------------------------
-
             for (int x = -3; x <= 3; x++)
             {
                 AddTile("BMB", 1, x, -1, 0);
@@ -77,7 +77,6 @@ namespace examer
 
             AddTile("WND", 1, 0, -1, 2);
             AddTile("WND", 1, 0, 0, 2);
-            AddTile("DRG", 1, 0, 0, 3);
 
             AddTile("FLW", 1, -3, -1, 0);
             AddTile("FLW", 2, -3, 0, 0);
@@ -87,9 +86,6 @@ namespace examer
             AddTile("SSN", 2, 3, 0, 0);
             AddTile("SSN", 3, 4, 0, 1);
 
-            // IMPORTANT: NO LOCATION SHUFFLE (keeps pattern positions unchanged)
-
-            // Assign solvable random names in pairs
             AssignRandomNamesInPairsSolvable(board.TilesOnBoard);
 
             UpdateTileAvailability();
@@ -258,9 +254,6 @@ namespace examer
             AssignRandomNamesInPairsSimple(tiles);
         }
 
-        /// <summary>
-        /// Simple random pairs (fallback). Assigns pairs for floor(count/2) pairs starting at the beginning; does NOT simulate removals.
-        /// </summary>
         private void AssignRandomNamesInPairsSimple(List<TileObject> tiles)
         {
             int count = tiles.Count;
@@ -290,10 +283,6 @@ namespace examer
             }
         }
 
-        /// <summary>
-        /// Returns true if tile at index idx is free under the *simulated* present[] state.
-        /// The logic mirrors BoardLogic.IsTileFree but uses 'present' mask instead of Visual.Visible.
-        /// </summary>
         private bool IsSimulatedFree(int idx, List<TileObject> tiles, bool[] present)
         {
             var tile = tiles[idx];
@@ -357,11 +346,6 @@ namespace examer
             return (suit, value);
         }
 
-        /// <summary>
-        /// Short readable text format for tiles requested:
-        /// B1..B9, CR1..CR9, CHR1..CHR9, WNDNORTH / WNDSOUTH / WNDEAST / WNDWEST,
-        /// DRR / DRG / DRW, SSN1..SSN4, FLW1..FLW4
-        /// </summary>
         private string ShortName(string suit, int value)
         {
             if (string.IsNullOrEmpty(suit)) return "?";
