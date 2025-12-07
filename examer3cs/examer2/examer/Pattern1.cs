@@ -21,73 +21,137 @@ namespace examer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int tileW = 60;
-            int tileH = 30;
-            int zOffsetX = 6;
-            int zOffsetY = 10;
+            int tileW = 40;
+            int tileH = 60;
             Point center = new Point(350, 220);
 
-            CheckBox CreateTile(string name, int bx, int by, int bz)
+            PictureBox CreateTile(string name, int bx, int by, int bz)
             {
-                var cb = new CheckBox
+                var pb = new PictureBox
                 {
-                    AutoSize = false,
                     Width = tileW,
                     Height = tileH,
-                    Text = name,
-                    TextAlign = ContentAlignment.MiddleCenter
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    BackColor = Color.Transparent,
+                    Tag = name // store tile name for reference
                 };
-                cb.CheckedChanged += tiles_CheckedChanged;
+
+                // Load image from tileAssets folder
+                string imgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tileAssets", $"{name}.png");
+                if (File.Exists(imgPath))
+                {
+                    using (var temp = Image.FromFile(imgPath))
+                    {
+                        pb.Image = new Bitmap(temp);
+                    }
+                }
+                else
+                {
+                    pb.BackColor = Color.Gray;
+                }
+
+                pb.Click += Tile_Click;
 
                 int offsetX = tileW / 5;
                 int offsetY = tileH / 2;
 
-                cb.Location = new Point(
+                pb.Location = new Point(
                     center.X + bx * tileW + bz * offsetX,
                     center.Y + by * tileH - bz * offsetY
                 );
 
+                Controls.Add(pb);
+                pb.BringToFront();
 
-                Controls.Add(cb);
-                cb.BringToFront();
-                return cb;
+                return pb;
             }
 
+            // ---------------------------------
+            // Add a tile to the board
+            // ---------------------------------
             void AddTile(string suit, int value, int bx, int by, int bz)
             {
-                var cb = CreateTile($"{suit}{value}", bx, by, bz);
+                string tileName = $"{suit}{value}";
+                var pb = CreateTile(tileName, bx, by, bz);
+
                 board.TilesOnBoard.Add(new TileObject(
                     new Tile { Suit = suit, Value = value },
                     bx, by, bz,
-                    cb
+                    pb
                 ));
             }
 
-            for (int x = -3; x <= 3; x++)
+            // ---------------------------------
+            // Layout tiles on the board
+            // ---------------------------------
+            // ---------------------------------
+            // STANDARD MAHJONG SOLITAIRE (TURTLE) LAYOUT
+            // ---------------------------------
+
+            // Layer Z = 0 (base)
+            for (int x = -6; x <= 6; x++)
             {
-                AddTile("BMB", 1, x, -1, 0);
-                AddTile("CRC", 7, x, 0, 0);
+                for (int y = -3; y <= 3; y++)
+                {
+                    AddTile("B", 1, x, y, 0);
+                }
             }
 
+            // Layer Z = 1
+            for (int x = -5; x <= 5; x++)
+            {
+                for (int y = -2; y <= 2; y++)
+                {
+                    AddTile("CR", 2, x, y, 1);
+                }
+            }
+
+            // Layer Z = 2
+            for (int x = -4; x <= 4; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    AddTile("CHR", 3, x, y, 2);
+                }
+            }
+
+            // Layer Z = 3 (top middle block)
             for (int x = -2; x <= 2; x++)
             {
-                AddTile("CH", 5, x, -1, 1);
-                AddTile("CH", 8, x, 0, 1);
+                for (int y = -1; y <= 1; y++)
+                {
+                    AddTile("WND", 1, x, y, 3);
+                }
             }
 
-            AddTile("WND", 1, 0, -1, 2);
-            AddTile("WND", 1, 0, 0, 2);
+            AddTile("DR", 1, 0, 0, 4);
 
-            AddTile("FLW", 1, -3, -1, 0);
-            AddTile("FLW", 2, -3, 0, 0);
-            AddTile("FLW", 3, -4, 0, 1);
+            // ---------------------------------
+            // Wings (left side protrusions)
+            // ---------------------------------
+            AddTile("SSN", 1, -7, -2, 0);
+            AddTile("SSN", 2, -7, -1, 0);
+            AddTile("SSN", 3, -7, 0, 0);
+            AddTile("SSN", 4, -7, 1, 0);
+            AddTile("SSN", 1, -7, 2, 0);
 
-            AddTile("SSN", 1, 3, -1, 0);
-            AddTile("SSN", 2, 3, 0, 0);
-            AddTile("SSN", 3, 4, 0, 1);
+            // ---------------------------------
+            // Wings (right side protrusions)
+            // ---------------------------------
+            AddTile("FLW", 1, 7, -2, 0);
+            AddTile("FLW", 2, 7, -1, 0);
+            AddTile("FLW", 3, 7, 0, 0);
+            AddTile("FLW", 4, 7, 1, 0);
+            AddTile("FLW", 1, 7, 2, 0);
 
+
+
+            // ---------------------------------
+            // Assign solvable random names
+            // ---------------------------------
             AssignRandomNamesInPairsSolvable(board.TilesOnBoard);
 
+            // Update availability (blocked tiles disabled)
             UpdateTileAvailability();
         }
 
@@ -144,16 +208,38 @@ namespace examer
                     c.Enabled = c.Visible && board.IsTileFree(t);
         }
 
+        private void Tile_Click(object? sender, EventArgs e)
+        {
+            if (sender is not PictureBox pb) return;
+
+            var tileObj = board.FindByVisual(pb);
+            if (tileObj == null) return;
+
+            if (!board.IsTileFree(tileObj))
+                return; // blocked tile
+
+            if (!selectedTiles.Contains(tileObj))
+                selectedTiles.Add(tileObj);
+
+            // highlight selection visually
+            pb.BorderStyle = BorderStyle.Fixed3D;
+
+            if (selectedTiles.Count == 2)
+            {
+                HandleSelection(selectedTiles[0], selectedTiles[1]);
+                ClearSelectionVisuals();
+            }
+        }
+
         private void ClearSelectionVisuals()
         {
-            suppressCheckedChanged = true;
-
             foreach (var t in selectedTiles)
-                if (t.Visual is CheckBox cb) cb.Checked = false;
+                if (t.Visual is PictureBox pb)
+                    pb.BorderStyle = BorderStyle.None;
 
             selectedTiles.Clear();
-            suppressCheckedChanged = false;
         }
+
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -171,25 +257,20 @@ namespace examer
             if (tiles == null || tiles.Count == 0) return;
 
             int count = tiles.Count;
-            int toAssignPairs = count / 2; // we will assign pairs for floor(count/2) pairs; if odd one tile may be left unchanged
+            int toAssignPairs = count / 2;
 
-            // We'll attempt multiple times if random choices cause a dead-end
             const int maxAttempts = 500;
 
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
-                // simulation state
-                bool[] present = Enumerable.Repeat(true, count).ToArray();    // which tiles are still present (in simulation)
-                (string suit, int val)[] assigned = new (string, int)[count]; // assigned pair name per tile, default nulls as ("",0)
+                bool[] present = Enumerable.Repeat(true, count).ToArray();
+                (string suit, int val)[] assigned = new (string, int)[count];
                 bool[] isAssigned = new bool[count];
-
                 bool failure = false;
-
                 int assignedPairs = 0;
 
                 while (assignedPairs < toAssignPairs)
                 {
-                    // Collect indices of tiles that are present and unassigned and are free in the simulated board
                     var freeIndices = new List<int>();
                     for (int i = 0; i < count; i++)
                     {
@@ -200,37 +281,26 @@ namespace examer
 
                     if (freeIndices.Count < 2)
                     {
-                        // dead end for this attempt — restart
                         failure = true;
                         break;
                     }
 
-                    // choose two distinct free indices at random
                     int idxA = freeIndices[rng.Next(freeIndices.Count)];
                     int idxB;
-                    do
-                    {
-                        idxB = freeIndices[rng.Next(freeIndices.Count)];
-                    } while (idxB == idxA);
+                    do { idxB = freeIndices[rng.Next(freeIndices.Count)]; } while (idxB == idxA);
 
                     var tileType = GenerateRandomTile();
 
-                    // assign them
                     assigned[idxA] = tileType;
                     assigned[idxB] = tileType;
                     isAssigned[idxA] = isAssigned[idxB] = true;
 
-                    // simulate removing them (so other tiles can become free)
-                    present[idxA] = false;
-                    present[idxB] = false;
-
+                    present[idxA] = present[idxB] = false;
                     assignedPairs++;
                 }
 
                 if (!failure)
                 {
-                    // success — apply assignments to actual tiles and update texts
-                    // For any tile not assigned (only possible if odd count) keep its original TileData but update text shortname
                     for (int i = 0; i < count; i++)
                     {
                         if (isAssigned[i])
@@ -238,21 +308,69 @@ namespace examer
                             tiles[i].TileData.Suit = assigned[i].suit;
                             tiles[i].TileData.Value = assigned[i].val;
                         }
-                        // update visual text in short format
-                        if (tiles[i].Visual is CheckBox cb)
-                            cb.Text = ShortName(tiles[i].TileData.Suit, tiles[i].TileData.Value);
+
+                        UpdateTileImage(tiles[i]);
                     }
 
-                    return; // done
+                    return;
                 }
-
-                // else loop to try another random attempt
             }
 
-            // If we reach here, attempts failed — fallback to safe simple pair assignment (non-guaranteed)
-            // (This is unlikely; fallback kept so the game still runs)
             AssignRandomNamesInPairsSimple(tiles);
         }
+
+        private string GetFileName(Tile tile)
+        {
+            return tile.Suit switch
+            {
+                "B" => $"B{tile.Value}.png",
+                "CR" => $"CR{tile.Value}.png",
+                "CHR" => $"CHR{tile.Value}.png",
+
+                "WND" => tile.Value switch
+                {
+                    1 => "WNDS.png",
+                    2 => "WNDN.png",
+                    3 => "WNDE.png",
+                    4 => "WNDW.png",
+                    _ => "WND?.png"
+                },
+
+                "DR" => tile.Value switch
+                {
+                    1 => "DRR.png",
+                    2 => "DRG.png",
+                    3 => "DRW.png",
+                    _ => "DR?.png"
+                },
+
+                "SSN" => $"SSN{tile.Value}.png",
+                "FLW" => $"FLW{tile.Value}.png",
+                _ => $"{tile.Suit}{tile.Value}.png"
+            };
+        }
+
+
+        private void UpdateTileImage(TileObject tile)
+        {
+            if (tile.Visual is not PictureBox pb) return;
+
+            string filename = GetFileName(tile.TileData);
+            string imgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tileAssets", filename);
+
+            if (File.Exists(imgPath))
+            {
+                using (var temp = Image.FromFile(imgPath))
+                {
+                    pb.Image = new Bitmap(temp);
+                }
+            }
+            else
+            {
+                pb.Image = null;
+            }
+        }
+
 
         private void AssignRandomNamesInPairsSimple(List<TileObject> tiles)
         {
@@ -281,6 +399,16 @@ namespace examer
                 if (last.Visual is CheckBox cb)
                     cb.Text = ShortName(last.TileData.Suit, last.TileData.Value);
             }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                tiles[i].TileData.Suit = list[i].suit;
+                tiles[i].TileData.Value = list[i].value;
+                UpdateTileImage(tiles[i]);
+            }
+
+            if (count % 2 == 1)
+                UpdateTileImage(tiles[list.Count]);
         }
 
         private bool IsSimulatedFree(int idx, List<TileObject> tiles, bool[] present)
@@ -320,21 +448,21 @@ namespace examer
 
         private (string suit, int value) GenerateRandomTile()
         {
-            string[] suits = { "BMB", "CRC", "CH", "WND", "DRG", "SSN", "FLW" };
+            string[] suits = { "B", "CR", "CHR", "WND", "DR", "SSN", "FLW" };
             string suit = suits[rng.Next(suits.Length)];
             int value = 1;
 
             switch (suit)
             {
-                case "BMB":
-                case "CRC":
+                case "B":
+                case "CR":
                 case "CH":
                     value = rng.Next(1, 10); // 1..9
                     break;
                 case "WND":
                     value = rng.Next(1, 5);  // 1..4 => mapped to directions
                     break;
-                case "DRG":
+                case "DR":
                     value = rng.Next(1, 4);  // 1..3
                     break;
                 case "SSN":
@@ -353,15 +481,15 @@ namespace examer
             suit = suit.ToUpperInvariant();
             return suit switch
             {
-                "BMB" => $"B{value}",
-                "CRC" => $"CR{value}",
-                "CH" => $"CHR{value}",
+                "B" => $"B{value}",
+                "CR" => $"CR{value}",
+                "CHR" => $"CHR{value}",
                 "WND" => value switch
                 {
-                    1 => "WNDSOUTH",
-                    2 => "WNDNORTH",
-                    3 => "WNDEAST",
-                    4 => "WNDWEST",
+                    1 => "WNDS",
+                    2 => "WNDN",
+                    3 => "WNDE",
+                    4 => "WNDW",
                     _ => "WND?"
                 },
                 "DRG" => value switch

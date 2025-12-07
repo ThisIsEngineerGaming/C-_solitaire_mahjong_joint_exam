@@ -8,4 +8,178 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="tileAssets\B1.png" />
+    <None Remove="tileAssets\B2.png" />
+    <None Remove="tileAssets\B3.png" />
+    <None Remove="tileAssets\B4.png" />
+    <None Remove="tileAssets\B5.png" />
+    <None Remove="tileAssets\B6.png" />
+    <None Remove="tileAssets\B7.png" />
+    <None Remove="tileAssets\B8.png" />
+    <None Remove="tileAssets\B9.png" />
+    <None Remove="tileAssets\CHR1.png" />
+    <None Remove="tileAssets\CHR2.png" />
+    <None Remove="tileAssets\CHR3.png" />
+    <None Remove="tileAssets\CHR4.png" />
+    <None Remove="tileAssets\CHR5.png" />
+    <None Remove="tileAssets\CHR6.png" />
+    <None Remove="tileAssets\CHR7.png" />
+    <None Remove="tileAssets\CHR8.png" />
+    <None Remove="tileAssets\CHR9.png" />
+    <None Remove="tileAssets\CR1.png" />
+    <None Remove="tileAssets\CR2.png" />
+    <None Remove="tileAssets\CR3.png" />
+    <None Remove="tileAssets\CR4.png" />
+    <None Remove="tileAssets\CR5.png" />
+    <None Remove="tileAssets\CR6.png" />
+    <None Remove="tileAssets\CR7.png" />
+    <None Remove="tileAssets\CR8.png" />
+    <None Remove="tileAssets\CR9.png" />
+    <None Remove="tileAssets\DRG.png" />
+    <None Remove="tileAssets\DRR.png" />
+    <None Remove="tileAssets\DRW.png" />
+    <None Remove="tileAssets\FLW1.png" />
+    <None Remove="tileAssets\FLW2.png" />
+    <None Remove="tileAssets\FLW3.png" />
+    <None Remove="tileAssets\FLW4.png" />
+    <None Remove="tileAssets\SSN1.png" />
+    <None Remove="tileAssets\SSN2.png" />
+    <None Remove="tileAssets\SSN3.png" />
+    <None Remove="tileAssets\SSN4.png" />
+    <None Remove="tileAssets\WNDE.png" />
+    <None Remove="tileAssets\WNDN.png" />
+    <None Remove="tileAssets\WNDS.png" />
+    <None Remove="tileAssets\WNDW.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="tileAssets\B1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\B9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CHR9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\CR9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\DRG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\DRR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\DRW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\FLW1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\FLW2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\FLW3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\FLW4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\SSN1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\SSN2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\SSN3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\SSN4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\WNDE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\WNDN.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\WNDS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tileAssets\WNDW.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

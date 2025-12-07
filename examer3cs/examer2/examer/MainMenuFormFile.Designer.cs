@@ -38,7 +38,7 @@
             // 
             // PlayButton
             // 
-            PlayButton.Location = new Point(358, 199);
+            PlayButton.Location = new Point(310, 227);
             PlayButton.Name = "PlayButton";
             PlayButton.Size = new Size(75, 23);
             PlayButton.TabIndex = 0;
@@ -46,24 +46,24 @@
             PlayButton.UseVisualStyleBackColor = true;
             PlayButton.Click += PlayButton_Click;
             // 
-            // ExitButton
+            // button2
             // 
-            button2.Location = new Point(358, 256);
-            button2.Name = "ExitButton";
+            button2.Location = new Point(310, 356);
+            button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 1;
             button2.Text = "Exit";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += this.ExitButton_Click;
+            button2.Click += ExitButton_Click;
             // 
-            // MainMenu
+            // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(704, 537);
             Controls.Add(button2);
             Controls.Add(PlayButton);
-            Name = "MainMenu";
+            Name = "MainMenuForm";
             Text = "Form1";
             ResumeLayout(false);
         }
