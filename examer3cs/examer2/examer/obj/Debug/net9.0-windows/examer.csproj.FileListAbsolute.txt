@@ -154,3 +154,5 @@ C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\exa
 C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDW.png
 C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjong.ico
 C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjongbg.jpg
+C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjong.ico
+C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjongbg.jpg
