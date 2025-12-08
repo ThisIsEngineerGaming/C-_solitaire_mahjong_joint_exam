@@ -136,8 +136,3 @@ The project demonstrates **object-oriented programming**, **advanced C# features
 2. Make sure `tileAssets` folder and `mahjong.ico` are present
 3. Click **Start (F5)** to run the program
 
----
-
-## 👨‍💻 Author
-Mahjong Solitaire – Joint C# Exam Project  
-All technical and documentation requirements have been fully implemented.
