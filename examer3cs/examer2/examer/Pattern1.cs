@@ -60,7 +60,7 @@ namespace examer
                     center.Y + by * tileH - bz * offsetY
                 );
 
-                Controls.Add(pb);
+                gamePanel.Controls.Add(pb);
                 pb.BringToFront();
 
                 return pb;
@@ -204,9 +204,27 @@ namespace examer
         private void UpdateTileAvailability()
         {
             foreach (var t in board.TilesOnBoard)
-                if (t.Visual is Control c)
-                    c.Enabled = c.Visible && board.IsTileFree(t);
+            {
+                if (t.Visual is PictureBox pb)
+                {
+                    bool free = board.IsTileFree(t);
+
+                    pb.Enabled = pb.Visible && free;
+
+                    if (free)
+                    {
+                        UpdateTileImage(t);
+                    }
+                    else
+                    {
+                        if (pb.Image != null)
+                            pb.Image = MakeBlockedImage(pb.Image);
+                    }
+                }
+            }
         }
+
+
 
         private void Tile_Click(object? sender, EventArgs e)
         {
@@ -450,6 +468,51 @@ namespace examer
             if (leftBlocked && rightBlocked) return false;
             return true;
         }
+        private Image MakeBlockedImage(Image original)
+        {
+            if (original == null)
+                return null;
+
+            if (original.Tag as string == "blocked")
+                return original;
+
+            float opacity = 0.7f;
+            float grayL = 0.33f;
+
+            Bitmap output = new Bitmap(original.Width, original.Height);
+
+            using (Graphics g = Graphics.FromImage(output))
+            {
+                var colorMatrix = new System.Drawing.Imaging.ColorMatrix(
+                    new float[][]
+                    {
+                new float[] { grayL, grayL, grayL, 0, 0 },
+                new float[] { grayL, grayL, grayL, 0, 0 },
+                new float[] { grayL, grayL, grayL, 0, 0 },
+
+                new float[] { 0, 0, 0, opacity, 0 },
+
+                new float[] { 0, 0, 0, 0, 1 }
+                    });
+
+                var attributes = new System.Drawing.Imaging.ImageAttributes();
+                attributes.SetColorMatrix(colorMatrix);
+
+                g.DrawImage(
+                    original,
+                    new Rectangle(0, 0, output.Width, output.Height),
+                    0, 0, original.Width, original.Height,
+                    GraphicsUnit.Pixel,
+                    attributes
+                );
+            }
+
+            output.Tag = "blocked";
+
+            return output;
+        }
+
+
 
         private (string suit, int value) GenerateRandomTile()
         {
