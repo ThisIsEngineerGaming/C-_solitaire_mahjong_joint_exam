@@ -66,9 +66,7 @@ namespace examer
                 return pb;
             }
 
-            // ---------------------------------
             // Add a tile to the board
-            // ---------------------------------
             void AddTile(string suit, int value, int bx, int by, int bz)
             {
                 string tileName = $"{suit}{value}";
@@ -81,14 +79,9 @@ namespace examer
                 ));
             }
 
-            // ---------------------------------
-            // Layout tiles on the board
-            // ---------------------------------
-            // ---------------------------------
-            // STANDARD MAHJONG SOLITAIRE (TURTLE) LAYOUT
-            // ---------------------------------
 
-            // Layer Z = 0 (base)
+
+            // Generating layers
             for (int x = -6; x <= 6; x++)
             {
                 for (int y = -3; y <= 3; y++)
@@ -97,7 +90,6 @@ namespace examer
                 }
             }
 
-            // Layer Z = 1
             for (int x = -5; x <= 5; x++)
             {
                 for (int y = -2; y <= 2; y++)
@@ -106,7 +98,7 @@ namespace examer
                 }
             }
 
-            // Layer Z = 2
+
             for (int x = -4; x <= 4; x++)
             {
                 for (int y = -1; y <= 1; y++)
@@ -115,7 +107,7 @@ namespace examer
                 }
             }
 
-            // Layer Z = 3 (top middle block)
+
             for (int x = -2; x <= 2; x++)
             {
                 for (int y = -1; y <= 1; y++)
@@ -124,20 +116,16 @@ namespace examer
                 }
             }
 
-            AddTile("DR", 1, 0, 0, 4);
+            //AddTile("DR", 1, 0, 0, 4);
 
-            // ---------------------------------
             // Wings (left side protrusions)
-            // ---------------------------------
             AddTile("SSN", 1, -7, -2, 0);
             AddTile("SSN", 2, -7, -1, 0);
             AddTile("SSN", 3, -7, 0, 0);
             AddTile("SSN", 4, -7, 1, 0);
             AddTile("SSN", 1, -7, 2, 0);
 
-            // ---------------------------------
             // Wings (right side protrusions)
-            // ---------------------------------
             AddTile("FLW", 1, 7, -2, 0);
             AddTile("FLW", 2, 7, -1, 0);
             AddTile("FLW", 3, 7, 0, 0);
@@ -146,15 +134,13 @@ namespace examer
 
 
 
-            // ---------------------------------
             // Assign solvable random names
-            // ---------------------------------
             AssignRandomNamesInPairsSolvable(board.TilesOnBoard);
 
             // Update availability (blocked tiles disabled)
             UpdateTileAvailability();
         }
-
+        // Basic tile selection and matching logic
         private void tiles_CheckedChanged(object? sender, EventArgs e)
         {
             if (suppressCheckedChanged) return;
@@ -187,7 +173,7 @@ namespace examer
                 ClearSelectionVisuals();
             }
         }
-
+        // The bulk of the game logic. Checks if they can be matched, tries to perform it, updates tile states, checks for win/loss
         private void HandleSelection(TileObject a, TileObject b)
         {
             if (a == null || b == null) return;
@@ -198,9 +184,11 @@ namespace examer
             if (board.TryMatch(a, b))
             {
                 UpdateTileAvailability();
+                CheckForWin();
+                CheckForLoss();
             }
         }
-
+        // Updates the enabled/disabled state of tiles based on whether they are free or blocked
         private void UpdateTileAvailability()
         {
             foreach (var t in board.TilesOnBoard)
@@ -223,9 +211,68 @@ namespace examer
                 }
             }
         }
+        // If there are no tiles, then epic win
+        private void CheckForWin()
+        {
+            if (board.TilesOnBoard.Count == 0)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Congrats, you matched everything.\nPress OK to go back to the menu...",
+                    "You Win!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
 
+                if (result == DialogResult.OK)
+                {
+                    this.Hide();
+                    MainMenuForm menu = new MainMenuForm();
+                    menu.Show();
+                    this.Close();
+                }
+            }
+        }
+        // if there are no matching pairs left BUT there are still tiles remaining, then you lose(its really difficult to lose though)
+        private void CheckForLoss()
+        {
+            if (!HasAnyAvailableMoves() && board.TilesOnBoard.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(
+                    "You cant match anything else now.\nClick OK to go back to the main menu.",
+                    "Game Over",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
 
+                if (result == DialogResult.OK)
+                {
+                    this.Hide();
+                    MainMenuForm menu = new MainMenuForm();
+                    menu.Show();
+                    this.Close();
+                }
+            }
+        }
+        // This is what actually checks for available moves for the loss condition
+        private bool HasAnyAvailableMoves()
+        {
+            var freeTiles = board.TilesOnBoard
+                .Where(t => board.IsTileFree(t))
+                .ToList();
 
+            for (int i = 0; i < freeTiles.Count; i++)
+            {
+                for (int j = i + 1; j < freeTiles.Count; j++)
+                {
+                    if (freeTiles[i].TileData.IsMatching(freeTiles[j].TileData))
+                        return true; 
+                }
+            }
+
+            return false; 
+        }
+
+        // Logic for selecting a tile(for visuals and matching)
         private void Tile_Click(object? sender, EventArgs e)
         {
             if (sender is not PictureBox pb) return;
@@ -248,7 +295,7 @@ namespace examer
                 ClearSelectionVisuals();
             }
         }
-
+        // Does what it says, clears selection highlights
         private void ClearSelectionVisuals()
         {
             foreach (var t in selectedTiles)
@@ -258,7 +305,7 @@ namespace examer
             selectedTiles.Clear();
         }
 
-
+        // Very simple, press button, go to menu, wow
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -269,12 +316,8 @@ namespace examer
             this.Close();
         }
 
-        // ------------------------------------------------
-        // SOLVABLE PAIR ASSIGNER
-        // - Assigns names in pairs
-        // - Simulates removals so assignment is guaranteed solvable (except possibly one leftover if tile count is odd)
-        // ------------------------------------------------
 
+        // Most miserable logic that made us go insane. Creates a random but solvable tile set with way too many checks
         private void AssignRandomNamesInPairsSolvable(List<TileObject> tiles)
         {
             if (tiles == null || tiles.Count == 0) return;
@@ -394,13 +437,12 @@ namespace examer
                 pb.Image = new Bitmap(temp);
             }
 
-            // IMPORTANT — reset the tag
             if (pb.Image != null)
                 pb.Image.Tag = null;
         }
 
 
-
+        // part of the logic for generating solvable tile sets, 
         private void AssignRandomNamesInPairsSimple(List<TileObject> tiles)
         {
             int count = tiles.Count;
@@ -439,7 +481,7 @@ namespace examer
             if (count % 2 == 1)
                 UpdateTileImage(tiles[list.Count]);
         }
-
+        // Still for the generation logic
         private bool IsSimulatedFree(int idx, List<TileObject> tiles, bool[] present)
         {
             var tile = tiles[idx];
@@ -474,6 +516,7 @@ namespace examer
             if (leftBlocked && rightBlocked) return false;
             return true;
         }
+        // Stuff for making the blocked tile images grayed out and a bit transparent
         private Image MakeBlockedImage(Image original)
         {
             if (original == null)
@@ -512,14 +555,14 @@ namespace examer
                     attributes
                 );
             }
-
+            // What allows to do the check 4 it
             output.Tag = "blocked";
 
             return output;
         }
 
 
-
+        // Gambling for tiles and all their variations, lets go
         private (string suit, int value) GenerateRandomTile()
         {
             string[] suits = { "B", "CR", "CHR", "WND", "DR", "SSN", "FLW" };
@@ -530,11 +573,11 @@ namespace examer
             {
                 case "B":
                 case "CR":
-                case "CH":
+                case "CHR":
                     value = rng.Next(1, 10); // 1..9
                     break;
                 case "WND":
-                    value = rng.Next(1, 5);  // 1..4 => mapped to directions
+                    value = rng.Next(1, 5);  // 1..4 
                     break;
                 case "DR":
                     value = rng.Next(1, 4);  // 1..3
@@ -547,7 +590,7 @@ namespace examer
 
             return (suit, value);
         }
-
+        //transforming the numbers into proper names (Used for logic and old display for when they did not have images)
         private string ShortName(string suit, int value)
         {
             if (string.IsNullOrEmpty(suit)) return "?";

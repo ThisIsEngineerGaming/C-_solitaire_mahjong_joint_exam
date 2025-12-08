@@ -24,7 +24,7 @@
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(75, 23);
             exitButton.TabIndex = 0;
-            exitButton.Text = "Exit";
+            exitButton.Text = "Back";
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += ExitButton_Click;
             AutoScaleDimensions = new SizeF(7F, 13F);
@@ -40,11 +40,22 @@
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
             catch {}
+            gamePanel = new Panel();
+            gamePanel.BackColor = Color.Transparent;
+            gamePanel.Size = new Size(704, 537);
+            gamePanel.Location = new Point(0, 0);
+
+            gamePanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Controls.Add(gamePanel);
+            gamePanel.SendToBack();
+
 
             Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel gamePanel;
     }
 }
