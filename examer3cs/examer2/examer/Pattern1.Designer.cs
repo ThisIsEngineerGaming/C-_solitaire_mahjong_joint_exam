@@ -15,9 +15,10 @@
         }
 
         #region Windows Form Designer generated code
-
+        // stuff for the basic form design
         private void InitializeComponent()
         {
+            //buttons and stuff
             exitButton = new Button();
             SuspendLayout();
             exitButton.Location = new Point(12, 502);
@@ -31,8 +32,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(704, 537);
             Controls.Add(exitButton);
+            // Name, title and sprites for the form
             Name = "Pattern1";
             Text = "Mahjong Pattern 1";
+            // so it doesnt error when it cant load in
             try
             {
                 this.Icon = new Icon("mahjong.ico");

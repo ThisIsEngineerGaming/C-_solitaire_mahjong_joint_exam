@@ -13,10 +13,7 @@
             Value = value;
         }
 
-        /// <summary>
-        /// Seasons (SSN) and Flowers (FLW) match each other regardless of number.
-        /// All other tiles match only if Suit AND Value match exactly.
-        /// </summary>
+        // Matching conditions specifically for seasons and flowers since they are "special"
         public bool IsMatching(Tile other)
         {
             if (other == null) return false;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+// The actual logic for matching tiles
 namespace examer
 {
     public class TileComparers
