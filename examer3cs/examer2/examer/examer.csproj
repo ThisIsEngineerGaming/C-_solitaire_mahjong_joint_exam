@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="mahjong.ico" />
+    <None Remove="mahjongbg.jpg" />
     <None Remove="tileAssets\B1.png" />
     <None Remove="tileAssets\B2.png" />
     <None Remove="tileAssets\B3.png" />
@@ -54,6 +56,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="mahjong.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mahjongbg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="tileAssets\B1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

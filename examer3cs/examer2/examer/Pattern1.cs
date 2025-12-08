@@ -243,7 +243,12 @@ namespace examer
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+
+            MainMenuForm menu = new MainMenuForm();
+            menu.Show();
+
+            this.Close();
         }
 
         // ------------------------------------------------

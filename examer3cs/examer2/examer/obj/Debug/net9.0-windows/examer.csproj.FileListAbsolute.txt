@@ -110,3 +110,47 @@ C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDN.png
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDS.png
 C:\Users\Admin\Desktop\coding and step\C#\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDW.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B1.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B2.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B3.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B4.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B5.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B6.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B7.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B8.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\B9.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR1.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR2.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR3.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR4.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR5.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR6.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR7.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR8.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CHR9.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR1.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR2.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR3.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR4.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR5.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR6.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR7.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR8.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\CR9.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\DRG.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\DRR.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\DRW.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\FLW1.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\FLW2.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\FLW3.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\FLW4.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\SSN1.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\SSN2.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\SSN3.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\SSN4.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDE.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDN.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDS.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\tileAssets\WNDW.png
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjong.ico
+C:\Users\User\Source\Repos\C-_solitaire_mahjong_joint_exam\examer3cs\examer2\examer\bin\Debug\net9.0-windows\mahjongbg.jpg

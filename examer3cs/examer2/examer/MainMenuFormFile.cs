@@ -19,10 +19,13 @@ namespace examer
             this.Text = "Mahjong Game";
             try
             {
-                this.Icon = new Icon("mahjong.ico"); // Place mahjong.ico in output directory
+                this.Icon = new Icon("mahjong.ico");
+                this.BackgroundImage = Image.FromFile("mahjongbg.jpg");
+                this.BackgroundImageLayout = ImageLayout.Stretch;
             }
             catch { /* Ignore if icon not found */ }
         }
+
 
         /// <summary>
         /// Handles Play button click to start the game.
