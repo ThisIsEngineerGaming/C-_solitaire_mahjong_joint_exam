@@ -6,6 +6,8 @@ The goal of the game is to match identical free tiles and remove them from the b
 
 The project demonstrates **object-oriented programming**, **advanced C# features**, **SOLID principles**, **design patterns**, and **persistent data storage**.
 
+![Mahjong Banner](https://png.pngtree.com/thumb_back/fh260/back_our/20190625/ourmid/pngtree-mahjong-board-game-banner-background-image_259917.jpg)
+
 ---
 
 ## ✅ Used Programming Elements
