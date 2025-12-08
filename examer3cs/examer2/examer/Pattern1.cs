@@ -379,20 +379,26 @@ namespace examer
             if (tile.Visual is not PictureBox pb) return;
 
             string filename = GetFileName(tile.TileData);
-            string imgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tileAssets", filename);
+            string imgPath = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "tileAssets", filename);
 
-            if (File.Exists(imgPath))
-            {
-                using (var temp = Image.FromFile(imgPath))
-                {
-                    pb.Image = new Bitmap(temp);
-                }
-            }
-            else
+            if (!File.Exists(imgPath))
             {
                 pb.Image = null;
+                return;
             }
+
+            using (var temp = Image.FromFile(imgPath))
+            {
+                pb.Image = new Bitmap(temp);
+            }
+
+            // IMPORTANT — reset the tag
+            if (pb.Image != null)
+                pb.Image.Tag = null;
         }
+
 
 
         private void AssignRandomNamesInPairsSimple(List<TileObject> tiles)
