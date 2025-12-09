@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['load_0',['Load',['../interfaceexamer_1_1_i_saveable.html#aa7c34e30d07fa2afb36806c6726f2c80',1,'examer.ISaveable.Load()'],['../classexamer_1_1_tile_collection.html#a489ad28113df831ff0df5d0fd17ac83e',1,'examer.TileCollection.Load()']]]
+  ['ismatching_0',['IsMatching',['../classexamer_1_1_tile.html#a0db0f5771a8486a45b9bcff09600e1a0',1,'examer::Tile']]],
+  ['istilefree_1',['IsTileFree',['../classexamer_1_1_board_logic.html#a29be98badc64e516fddaba5361fe658f',1,'examer::BoardLogic']]]
 ];

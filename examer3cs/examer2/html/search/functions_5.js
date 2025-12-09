@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ismatching_0',['IsMatching',['../classexamer_1_1_tile.html#a0db0f5771a8486a45b9bcff09600e1a0',1,'examer::Tile']]],
-  ['istilefree_1',['IsTileFree',['../classexamer_1_1_board_logic.html#a29be98badc64e516fddaba5361fe658f',1,'examer::BoardLogic']]]
+  ['highscoremanager_0',['HighScoreManager',['../classexamer_1_1_high_score_manager.html#a175f559c1e2b2bbb61d3d6ac9bdf3526',1,'examer::HighScoreManager']]]
 ];

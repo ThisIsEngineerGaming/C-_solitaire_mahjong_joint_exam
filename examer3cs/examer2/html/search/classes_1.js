@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['characters_0',['Characters',['../classexamer_1_1_characters.html',1,'examer']]],
-  ['circles_1',['Circles',['../classexamer_1_1_circles.html',1,'examer']]]
+  ['highscoremanager_0',['HighScoreManager',['../classexamer_1_1_high_score_manager.html',1,'examer']]]
 ];

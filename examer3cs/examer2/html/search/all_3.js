@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dispose_0',['Dispose',['../classexamer_1_1_main_menu_form.html#a17c484bacdc77db44a0463526c7a26e1',1,'examer.MainMenuForm.Dispose()'],['../classexamer_1_1_pattern1.html#adde1b9a9c09ffbf24a237905198461b2',1,'examer.Pattern1.Dispose()']]]
+  ['compare_0',['Compare',['../classexamer_1_1_tile_comparers_1_1_suit_comparer.html#a2ed96b8b8b9ef6b0ac8d8e8f85777428',1,'examer.TileComparers.SuitComparer.Compare()'],['../classexamer_1_1_tile_comparers_1_1_value_comparer.html#a26940b8cc52a886659491ae62b7c361f',1,'examer.TileComparers.ValueComparer.Compare()']]]
 ];

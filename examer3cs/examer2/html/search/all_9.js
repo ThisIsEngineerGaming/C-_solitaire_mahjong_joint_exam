@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['mainmenuform_0',['MainMenuForm',['../classexamer_1_1_main_menu_form.html',1,'examer.MainMenuForm'],['../classexamer_1_1_main_menu_form.html#a0b6ba8d42f3f2c8dacafa8a311659689',1,'examer.MainMenuForm.MainMenuForm()']]],
-  ['mainmenuformfile_2ecs_1',['MainMenuFormFile.cs',['../_main_menu_form_file_8cs.html',1,'']]],
-  ['mainmenuformfile_2edesigner_2ecs_2',['MainMenuFormFile.Designer.cs',['../_main_menu_form_file_8_designer_8cs.html',1,'']]]
+  ['instance_0',['Instance',['../classexamer_1_1_board_logic.html#ae25bb5d255b378767bfeb6d35cf41094',1,'examer::BoardLogic']]],
+  ['isaveable_1',['ISaveable',['../interfaceexamer_1_1_i_saveable.html',1,'examer']]],
+  ['ismatching_2',['IsMatching',['../classexamer_1_1_tile.html#a0db0f5771a8486a45b9bcff09600e1a0',1,'examer::Tile']]],
+  ['istilefree_3',['IsTileFree',['../classexamer_1_1_board_logic.html#a29be98badc64e516fddaba5361fe658f',1,'examer::BoardLogic']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pattern1_0',['Pattern1',['../classexamer_1_1_pattern1.html#a5aa58bd1e5d788ccaef9abf22cd4fcb6',1,'examer::Pattern1']]]
+  ['operator_2b_0',['operator+',['../classexamer_1_1_tile_collection.html#a7afcca172791524a7b425be3dda15626',1,'examer::TileCollection']]]
 ];

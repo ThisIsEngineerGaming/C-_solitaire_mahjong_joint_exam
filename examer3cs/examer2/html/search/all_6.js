@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getenumerator_0',['GetEnumerator',['../classexamer_1_1_tile_collection.html#a7485b06d75c698403ce8e3f81ac15a68',1,'examer::TileCollection']]]
+  ['findbyvisual_0',['FindByVisual',['../classexamer_1_1_board_logic.html#a2b7161a74cd46e1d34b7d693dd05c00d',1,'examer::BoardLogic']]]
 ];

@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Csharp Solitare Mahjong", "index.html", [
+  [ "Solitare Mahjong csharp", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -48,7 +48,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_bamboo_8cs.html"
+"_8_n_e_t_core_app_00_version_0av9_80_8_assembly_attributes_8cs.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

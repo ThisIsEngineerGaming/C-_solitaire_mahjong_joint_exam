@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_0',['Load',['../interfaceexamer_1_1_i_saveable.html#aa7c34e30d07fa2afb36806c6726f2c80',1,'examer.ISaveable.Load()'],['../classexamer_1_1_tile_collection.html#a489ad28113df831ff0df5d0fd17ac83e',1,'examer.TileCollection.Load()']]]
+  ['highscoremanager_0',['HighScoreManager',['../classexamer_1_1_high_score_manager.html',1,'examer.HighScoreManager'],['../classexamer_1_1_high_score_manager.html#a175f559c1e2b2bbb61d3d6ac9bdf3526',1,'examer.HighScoreManager.HighScoreManager()']]]
 ];
