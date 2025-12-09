@@ -1,6 +1,6 @@
 ﻿namespace examer
 {
-    partial class Pattern1
+    public partial class Pattern1
     {
         private System.ComponentModel.IContainer components = null;
         private Button exitButton;

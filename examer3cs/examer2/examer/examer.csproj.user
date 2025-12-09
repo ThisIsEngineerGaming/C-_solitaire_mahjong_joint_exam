@@ -8,5 +8,17 @@
     <Compile Update="Pattern1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pattern1.Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pattern1.GameLogic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pattern1.GenerationLogic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pattern1.Visuals.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

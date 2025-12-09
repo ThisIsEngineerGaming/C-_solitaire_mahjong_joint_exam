@@ -37,7 +37,7 @@ namespace examer
 
             return 0;
         }
-
+        // Saves the highscore in a file
         public void SaveScore(int lastScore, int highScore)
         {
             try
