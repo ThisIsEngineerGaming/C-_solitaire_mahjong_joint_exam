@@ -8,6 +8,8 @@ namespace examer
 {
     public partial class Pattern1 : Form
     {
+        private HighScoreManager scoreManager = new HighScoreManager("score.txt");
+        private int highScore = 0;
         private BoardLogic board;
         private List<TileObject> selectedTiles = new List<TileObject>();
         private bool suppressCheckedChanged;
@@ -21,10 +23,11 @@ namespace examer
 
         private string scoreFile = "score.txt";
         private int score = 0;
-        private Label scoreLabel;
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            highScore = scoreManager.LoadHighScore();
             score = 0;
             UpdateScoreLabel();
             int tileW = 40;
@@ -428,7 +431,7 @@ namespace examer
 
         private void UpdateScoreLabel()
         {
-            scoreLabel.Text = $"Score: {score}";
+            scoreLabel.Text = $"Score: {score}   Highscore: {highScore}";
         }
         
         private void UpdateTileImage(TileObject tile)
@@ -642,20 +645,12 @@ namespace examer
             }
         }
 
-        private void SaveScore(int value)
+        private void SaveScore(int lastScore)
         {
-            try
-            {
-                using (FileStream fs = new FileStream(scoreFile, FileMode.Append, FileAccess.Write))
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    sw.WriteLine(value);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("save eror: " + ex.Message);
-            }
+            if (lastScore > highScore)
+                highScore = lastScore;
+
+            scoreManager.SaveScore(lastScore, highScore);
         }
     }
 }

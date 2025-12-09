@@ -1,0 +1,3 @@
+highscore: 9900
+last_game:
+score: 9900
