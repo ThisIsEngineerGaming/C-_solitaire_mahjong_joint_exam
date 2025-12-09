@@ -18,7 +18,7 @@
         // stuff for the basic form design
         private void InitializeComponent()
         {
-            //buttons and stuff
+            //buttonExit
             exitButton = new Button();
             SuspendLayout();
             exitButton.Location = new Point(12, 502);
@@ -32,6 +32,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(704, 537);
             Controls.Add(exitButton);
+            //scoreLabel
+            scoreLabel = new Label();
+            scoreLabel.Location = new Point(200, 10);
+            scoreLabel.Font = new Font("Arial", 14, FontStyle.Bold);
+            scoreLabel.ForeColor = Color.White;
+            scoreLabel.BackColor = Color.Transparent;
+            scoreLabel.AutoSize = true;
+            scoreLabel.Text = "Score: 0";
+            Controls.Add(scoreLabel);
             // Name, title and sprites for the form
             Name = "Pattern1";
             Text = "Mahjong Pattern 1";

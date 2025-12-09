@@ -7,7 +7,6 @@ namespace examer
     public class BoardLogic
     {
         private static BoardLogic _instance;
-
         public static BoardLogic Instance
         {
             get

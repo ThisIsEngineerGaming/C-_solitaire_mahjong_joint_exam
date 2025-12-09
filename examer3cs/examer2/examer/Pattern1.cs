@@ -19,8 +19,14 @@ namespace examer
             board = new BoardLogic();
         }
 
+        private string scoreFile = "score.txt";
+        private int score = 0;
+        private Label scoreLabel;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            score = 0;
+            UpdateScoreLabel();
             int tileW = 40;
             int tileH = 60;
             Point center = new Point(350, 220);
@@ -183,6 +189,8 @@ namespace examer
 
             if (board.TryMatch(a, b))
             {
+                score += 100;
+                UpdateScoreLabel();
                 UpdateTileAvailability();
                 CheckForWin();
                 CheckForLoss();
@@ -226,6 +234,7 @@ namespace examer
                 if (result == DialogResult.OK)
                 {
                     this.Hide();
+                    SaveScore(score);
                     MainMenuForm menu = new MainMenuForm();
                     menu.Show();
                     this.Close();
@@ -247,6 +256,7 @@ namespace examer
                 if (result == DialogResult.OK)
                 {
                     this.Hide();
+                    SaveScore(score);
                     MainMenuForm menu = new MainMenuForm();
                     menu.Show();
                     this.Close();
@@ -384,7 +394,7 @@ namespace examer
 
             AssignRandomNamesInPairsSimple(tiles);
         }
-
+        // asset name getter for tiles
         private string GetFileName(Tile tile)
         {
             return tile.Suit switch
@@ -416,7 +426,11 @@ namespace examer
             };
         }
 
-
+        private void UpdateScoreLabel()
+        {
+            scoreLabel.Text = $"Score: {score}";
+        }
+        
         private void UpdateTileImage(TileObject tile)
         {
             if (tile.Visual is not PictureBox pb) return;
@@ -440,7 +454,6 @@ namespace examer
             if (pb.Image != null)
                 pb.Image.Tag = null;
         }
-
 
         // part of the logic for generating solvable tile sets, 
         private void AssignRandomNamesInPairsSimple(List<TileObject> tiles)
@@ -560,8 +573,6 @@ namespace examer
 
             return output;
         }
-
-
         // Gambling for tiles and all their variations, lets go
         private (string suit, int value) GenerateRandomTile()
         {
@@ -628,6 +639,22 @@ namespace examer
             {
                 int j = rng.Next(i + 1);
                 (list[i], list[j]) = (list[j], list[i]);
+            }
+        }
+
+        private void SaveScore(int value)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(scoreFile, FileMode.Append, FileAccess.Write))
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                    sw.WriteLine(value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("save eror: " + ex.Message);
             }
         }
     }
